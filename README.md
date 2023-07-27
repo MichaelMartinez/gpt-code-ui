@@ -26,6 +26,25 @@ in the Python environment that is used in the shell where you run `gptcode`:
 pip install "numpy>=1.24,<1.25" "dateparser>=1.1,<1.2" "pandas>=1.5,<1.6" "geopandas>=0.13,<0.14" "tabulate>=0.9.0,<1.0" "PyPDF2>=3.0,<3.1" "pdfminer>=20191125,<20191200" "pdfplumber>=0.9,<0.10" "matplotlib>=3.7,<3.8"
 ```
 
+## User interface
+
+<img src="https://github.com/ricklamers/gpt-code-ui/assets/1309307/c29c504a-a7ed-4ae0-9360-d7224bc3e3d6" alt="GPT-Code logo" width="100%" />
+
+## Features
+
+- File upload
+- File download
+- Context awareness (it can refer to your previous messages)
+- Generate code
+- Run code (Python kernel)
+- Model switching (GPT-3.5 and GPT-4)
+
+## Misc
+
+### Using .env for OpenAI key
+
+You can put a .env in the working directory to load the `OPENAI_API_KEY` environment variable.
+
 ### Build and Use on Windows
 
 ```
@@ -53,25 +72,6 @@ make compile_frontend_win
 # Use the project and interpret!
 gptcode
 ```
-
-## User interface
-
-<img src="https://github.com/ricklamers/gpt-code-ui/assets/1309307/c29c504a-a7ed-4ae0-9360-d7224bc3e3d6" alt="GPT-Code logo" width="100%" />
-
-## Features
-
-- File upload
-- File download
-- Context awareness (it can refer to your previous messages)
-- Generate code
-- Run code (Python kernel)
-- Model switching (GPT-3.5 and GPT-4)
-
-## Misc
-
-### Using .env for OpenAI key
-
-You can put a .env in the working directory to load the `OPENAI_API_KEY` environment variable.
 
 ### Configurables
 
