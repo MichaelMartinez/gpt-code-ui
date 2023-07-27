@@ -7,6 +7,7 @@ Simply ask the OpenAI model to do something and it will generate & execute the c
 Read the [blog post](https://ricklamers.io/posts/gpt-code) to find out more.
 
 ## Community
+
 Judah Cooper offered to start & curate a Discord community. Join [here](https://discord.gg/ZmTQwpkYu6).
 
 ## Installation
@@ -22,13 +23,43 @@ In order to make basic dependencies available it's recommended to run the follow
 in the Python environment that is used in the shell where you run `gptcode`:
 
 ```sh
-pip install "numpy>=1.24,<1.25" "dateparser>=1.1,<1.2" "pandas>=1.5,<1.6" "geopandas>=0.13,<0.14" "tabulate>=0.9.0<1.0" "PyPDF2>=3.0,<3.1" "pdfminer>=20191125,<20191200" "pdfplumber>=0.9,<0.10" "matplotlib>=3.7,<3.8"
+pip install "numpy>=1.24,<1.25" "dateparser>=1.1,<1.2" "pandas>=1.5,<1.6" "geopandas>=0.13,<0.14" "tabulate>=0.9.0,<1.0" "PyPDF2>=3.0,<3.1" "pdfminer>=20191125,<20191200" "pdfplumber>=0.9,<0.10" "matplotlib>=3.7,<3.8"
+```
+
+### Build and Use on Windows
+
+```
+git clone https://github.com/ricklamers/gpt-code-ui.git
+cd gpt-code-ui
+
+# Create new environment for gpt-code-ui
+conda create -n gptcodeui python=3.10
+conda activate gptcodeui
+
+# Add OpenAI Key to a copy of .env.example and save it as .env
+# install the library locally like this to remain editable
+pip install -e .
+
+# install recomended libraries
+pip install "numpy>=1.24,<1.25" "dateparser>=1.1,<1.2" "pandas>=1.5,<1.6" "geopandas>=0.13,<0.14" "tabulate>=0.9.0,<1.0" "PyPDF2>=3.0,<3.1" "pdfminer>=20191125,<20191200" "pdfplumber>=0.9,<0.10" "matplotlib>=3.7,<3.8"
+
+# install (chocolately)[https://chocolatey.org/install] seriously, it is amazing for working on windows machines
+# install make with chocolatey
+choco install make
+
+# install the frontend
+make compile_frontend_win
+
+# Use the project and interpret!
+gptcode
 ```
 
 ## User interface
+
 <img src="https://github.com/ricklamers/gpt-code-ui/assets/1309307/c29c504a-a7ed-4ae0-9360-d7224bc3e3d6" alt="GPT-Code logo" width="100%" />
- 
+
 ## Features
+
 - File upload
 - File download
 - Context awareness (it can refer to your previous messages)
@@ -36,11 +67,14 @@ pip install "numpy>=1.24,<1.25" "dateparser>=1.1,<1.2" "pandas>=1.5,<1.6" "geopa
 - Run code (Python kernel)
 - Model switching (GPT-3.5 and GPT-4)
 
-## Misc.
+## Misc
+
 ### Using .env for OpenAI key
+
 You can put a .env in the working directory to load the `OPENAI_API_KEY` environment variable.
 
 ### Configurables
+
 Set the `API_PORT`, `WEB_PORT`, `SNAKEMQ_PORT` variables to override the defaults.
 
 Set `OPENAI_BASE_URL` to change the OpenAI API endpoint that's being used (note this environment variable includes the protocol `https://...`).
@@ -57,10 +91,11 @@ gptcode
 ```
 
 ### Docker
+
 [localagi](https://github.com/localagi) took the effort of bundling the Python package in a Docker container. Check it out here: [gpt-code-ui-docker](https://github.com/localagi/gpt-code-ui-docker).
 
 ## Contributing
-Please do and have a look at the [contributions guide](.github/CONTRIBUTING.md)! This should be a community initiative. I'll try my best to be responsive.
 
+Please do and have a look at the [contributions guide](.github/CONTRIBUTING.md)! This should be a community initiative. I'll try my best to be responsive.
 
 Thank you for your interest in this project!

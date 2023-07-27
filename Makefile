@@ -26,6 +26,14 @@ compile_frontend:
 	find ../gpt_code_ui/webapp/static -mindepth 1 ! -name '.gitignore' -delete && \
 	rsync -av dist/ ../gpt_code_ui/webapp/static
 
+compile_frontend_win:
+	cd frontend & \
+	npm install & \
+	set /p VITE_APP_VERSION=<..\setup.py & \
+	npm run build-win & \
+	del /q ..\gpt_code_ui\webapp\static\* & \
+	xcopy /E /I dist ..\gpt_code_ui\webapp\static
+
 bundle_pypi:
 	rm -rf dist build && \
 	python3 setup.py sdist bdist_wheel
